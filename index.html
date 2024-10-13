@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MST</title>
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <link rel="icon" type="image/x-icon" href="./img/favicons/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
+</head>
+
+<body>
+    <header class="header black">
+    <div class="container header-container">
+        <div class="header-inner">
+            <a href="#" class="header-logo logo">
+                <img class="header-logo__img" src="./img/logo.png" alt="logo">
+            </a>
+
+            <nav class="header-nav">
+                <div class="navbar__wrap">
+                    <div class="hamb">
+                        <div class="hamb__field" id="hamb">
+                            <span class="bar"></span> <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </div>
+                    <ul class="header-nav__list nav-list menu" id="menu">
+                        <li class="nav-list__item"><a href="#" class="header-nav__link link-orange">About</a></li>
+                        <li class="nav-list__item"><a href="#" class="header-nav__link link-orange">Gameplay</a></li>
+                        <li class="nav-list__item"><a href="#" class="header-nav__link link-orange">Community</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="popup" id="popup"></div>
+        </div>
+
+
+
+</header>
+    <main class="main">
+        <secton class="top black">
+    <div class="container top-container">
+        <div class="top-wrap">
+            <h1 class="top-heading heading">
+                Join the gaming community
+            </h1>
+            <h3 class="top-heading__descr">become part of the community</h3>
+            <ul class="top-list">
+                <li class="top-list__item">
+                    <svg width="39" height="37" viewBox="0 0 39 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1477_6)">
+                            <path
+                                d="M36 18.5C36 28.165 28.165 36 18.5 36C8.83502 36 1 28.165 1 18.5C1 8.83502 8.83502 1 18.5 1C28.165 1 36 8.83502 36 18.5Z"
+                                stroke="#EFCFAD" stroke-width="2" />
+                            <path
+                                d="M36.093 12.7722C35.569 11.1616 34.832 9.64832 33.9125 8.26562L17.7188 25.1324L17.7513 27.0095L18.5157 27.0046L36.093 12.7722Z"
+                                fill="#A4907D" />
+                            <path
+                                d="M39 6C38.7631 4.77238 36.5 4.0001 36.5 4.0001C36.0497 3.55499 33.4503 6.05569 33 6.5008L18.073 22.0005L11.5 14.5005C11.049 14.0554 9.95066 13.5554 9.5 14.0005L7.36115 15.4298C6.91087 15.8745 6.91087 16.596 7.36115 17.0408L17.1214 26.6834C17.3815 26.9405 17.7341 27.0441 18.073 27.0041C18.4119 27.0437 18.7646 26.9405 19.0247 26.6834L37.0296 8.89449C37.4799 8.44938 39.2591 7.34266 39 6Z"
+                                fill="white" />
+                            <path
+                                d="M19.0243 26.682L37.0292 8.89313C38.5 7.99972 39.4503 6.44483 39 5.99972C38.5497 5.55461 36.4909 6.74972 36.4909 6.74972L17.9698 24.9667L7.76964 15.024L7.36116 15.4281C6.91087 15.8728 6.91087 16.5943 7.36116 17.0391L17.121 26.682C17.3811 26.9391 17.7337 27.0427 18.0727 27.0028C18.4116 27.0427 18.7642 26.9395 19.0243 26.682Z"
+                                fill="#EFCFAD" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1477_6">
+                                <rect width="39" height="37" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <p class="top-text"><sapn class="top-list__item--span">$10 000</sapn>prize fund</p>
+                </li>
+                <li class="top-list__item"><svg width="39" height="37" viewBox="0 0 39 37" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1477_6)">
+                            <path
+                                d="M36 18.5C36 28.165 28.165 36 18.5 36C8.83502 36 1 28.165 1 18.5C1 8.83502 8.83502 1 18.5 1C28.165 1 36 8.83502 36 18.5Z"
+                                stroke="#EFCFAD" stroke-width="2" />
+                            <path
+                                d="M36.093 12.7722C35.569 11.1616 34.832 9.64832 33.9125 8.26562L17.7188 25.1324L17.7513 27.0095L18.5157 27.0046L36.093 12.7722Z"
+                                fill="#A4907D" />
+                            <path
+                                d="M39 6C38.7631 4.77238 36.5 4.0001 36.5 4.0001C36.0497 3.55499 33.4503 6.05569 33 6.5008L18.073 22.0005L11.5 14.5005C11.049 14.0554 9.95066 13.5554 9.5 14.0005L7.36115 15.4298C6.91087 15.8745 6.91087 16.596 7.36115 17.0408L17.1214 26.6834C17.3815 26.9405 17.7341 27.0441 18.073 27.0041C18.4119 27.0437 18.7646 26.9405 19.0247 26.6834L37.0296 8.89449C37.4799 8.44938 39.2591 7.34266 39 6Z"
+                                fill="white" />
+                            <path
+                                d="M19.0243 26.682L37.0292 8.89313C38.5 7.99972 39.4503 6.44483 39 5.99972C38.5497 5.55461 36.4909 6.74972 36.4909 6.74972L17.9698 24.9667L7.76964 15.024L7.36116 15.4281C6.91087 15.8728 6.91087 16.5943 7.36116 17.0391L17.121 26.682C17.3811 26.9391 17.7337 27.0427 18.0727 27.0028C18.4116 27.0427 18.7642 26.9395 19.0243 26.682Z"
+                                fill="#EFCFAD" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1477_6">
+                                <rect width="39" height="37" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <p class="top-text">
+                        <sapn class="top-list__item--span">30%</sapn>became best friends
+                    </p>
+                </li>
+                <li class="top-list__item"><svg width="39" height="37" viewBox="0 0 39 37" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1477_6)">
+                            <path
+                                d="M36 18.5C36 28.165 28.165 36 18.5 36C8.83502 36 1 28.165 1 18.5C1 8.83502 8.83502 1 18.5 1C28.165 1 36 8.83502 36 18.5Z"
+                                stroke="#EFCFAD" stroke-width="2" />
+                            <path
+                                d="M36.093 12.7722C35.569 11.1616 34.832 9.64832 33.9125 8.26562L17.7188 25.1324L17.7513 27.0095L18.5157 27.0046L36.093 12.7722Z"
+                                fill="#A4907D" />
+                            <path
+                                d="M39 6C38.7631 4.77238 36.5 4.0001 36.5 4.0001C36.0497 3.55499 33.4503 6.05569 33 6.5008L18.073 22.0005L11.5 14.5005C11.049 14.0554 9.95066 13.5554 9.5 14.0005L7.36115 15.4298C6.91087 15.8745 6.91087 16.596 7.36115 17.0408L17.1214 26.6834C17.3815 26.9405 17.7341 27.0441 18.073 27.0041C18.4119 27.0437 18.7646 26.9405 19.0247 26.6834L37.0296 8.89449C37.4799 8.44938 39.2591 7.34266 39 6Z"
+                                fill="white" />
+                            <path
+                                d="M19.0243 26.682L37.0292 8.89313C38.5 7.99972 39.4503 6.44483 39 5.99972C38.5497 5.55461 36.4909 6.74972 36.4909 6.74972L17.9698 24.9667L7.76964 15.024L7.36116 15.4281C6.91087 15.8728 6.91087 16.5943 7.36116 17.0391L17.121 26.682C17.3811 26.9391 17.7337 27.0427 18.0727 27.0028C18.4116 27.0427 18.7642 26.9395 19.0243 26.682Z"
+                                fill="#EFCFAD" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1477_6">
+                                <rect width="39" height="37" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <p class="top-text">do<sapn class="top-list__item--span">17%</sapn>participate in world tournaments</p>
+                </li>
+            </ul>
+            <a href="/" class="top-button white-button">follow</a>
+        </div>
+    </div>
+</secton>
+        <section class="info">
+    <picture class="info-img info-img__1">
+        <source srcset="./img/info-img-1.png" media="(max-width:360px)">
+        <source srcset="./img/info-img-1.png" media="(max-width:768px)">
+        <img src="./img/info-img-1.png" alt="">
+    </picture>
+    <div class="info-wrap">
+        <ul class="info-list">
+            <li class="info-item">
+                <p class="info-text">Gaming Enthusiasts united to deliver exceptional experiences</p>
+            </li>
+            <li class="info-item">
+                <p class="info-text">Your go-to hub for the latest games, reviews, and community</p>
+            </li>
+            <li class="info-item">
+                <p class="info-text">We believe in the power of collaboration. By working closely with game developers, we ensure that our platform offers a diverse range of games that cater to different preferences and skill levels. We also welcome user feedback to continuously improve our platform</p>
+            </li>
+            <li class="info-item">
+                <p class="info-text">Gaming for all, with accessibility, inclusivity, and safety in mind.</p>
+            </li>
+        </ul>
+        <a href="/" class="white-button info-btn">follow</a>
+    </div>
+    <picture class="info-img info-img__2">
+        <source srcset="./img/info-img-2.png" media="(max-width:360px)">
+        <source srcset="./img/info-img-2.png" media="(max-width:768px)">
+        <img src="./img/info-img-2.png" alt="">
+    </picture>
+</section>
+        <section class="feedback">
+    <div class="container feedback-container">
+        <div class="feedback-form__wrap">
+            <form class="feedback-form form" action="/">
+                <legend class="form-heading heading">Join our community right now</legend>
+                <input class="form-input input-text" type="text" id="name" placeholder="Name">
+                <input class="form-input input-text" type="email" id="email" placeholder="E-mail">
+                <div class="form-checkbox">
+                    <input class="form-input checkbox" type="checkbox" id="accept">
+                    <p class="checkbox-descr">I accept Privacy policy</p>
+                </div>
+                
+                <button class="form-btn sparkle-button" type="submit">Submit Form</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+    </main>
+    <footer class="footer black">
+    <nav class="footer-nav">
+        <div class="container footer-container">
+            <ul class="footer-nav__list">
+                <li class="footer-nav__list__item"><a href="#" class="footer-nav__link orange-link">About</a></li>
+                <li class="footer-nav__list__item"><a href="#" class="footer-nav__link orange-link">Gameplay</a></li>
+                <li class="footer-nav__list__item"><a href="#" class="footer-nav__link orange-link">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="footer-info__wrapper">
+        <div class="footer-info">
+            <div class="footer-info__links">
+                <a href="#" class="footer-logo logo"><img class="header-logo__img" src="./img/logo.png" alt="logo"></a>
+                <ul class="footer-social">
+                    <li class="footer-social__item">
+                        <a href="#" class="footer-social-link">
+                            <svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <desc>
+                                    Created with Pixso.
+                                </desc>
+                                <defs>
+                                    <clipPath id="clip65_1272">
+                                        <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                            transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0" />
+                                    </clipPath>
+                                </defs>
+                                <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                    transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0" />
+                                <g clip-path="url(#clip65_1272)">
+                                    <path
+                                        d="M21.33 5.33C24.27 5.33 26.66 7.72 26.66 10.66L26.66 21.33C26.66 24.27 24.27 26.66 21.33 26.66L10.66 26.66C7.72 26.66 5.33 24.27 5.33 21.33L5.33 10.66C5.33 7.72 7.72 5.33 10.66 5.33L21.33 5.33Z"
+                                        stroke="#D5C9BE" stroke-opacity="1.000000" stroke-width="2.000000"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M16 20C13.79 20 12 18.2 12 16C12 13.79 13.79 12 16 12C18.2 12 20 13.79 20 16C20 18.2 18.2 20 16 20Z"
+                                        stroke="#D5C9BE" stroke-opacity="1.000000" stroke-width="2.000000"
+                                        stroke-linejoin="round" />
+                                    <path d="M22 10L22 10" stroke="#D5C9BE" stroke-opacity="1.000000"
+                                        stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round" />
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="footer-social__item">
+                        <a href="#" class="footer-social-link">
+                            <svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <desc>
+                                    Created with Pixso.
+                                </desc>
+                                <defs>
+                                    <clipPath id="clip65_1273">
+                                        <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                            transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0" />
+                                    </clipPath>
+                                </defs>
+                                <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                    transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0" />
+                                <g clip-path="url(#clip65_1273)">
+                                    <path
+                                        d="M12 15.99C10.94 15.99 9.91 16.31 9.03 16.89C8.16 17.48 7.47 18.31 7.07 19.29C6.66 20.26 6.56 21.33 6.76 22.37C6.97 23.4 7.48 24.35 8.23 25.1C8.97 25.84 9.92 26.35 10.96 26.56C11.99 26.76 13.06 26.66 14.04 26.25C15.01 25.85 15.84 25.17 16.43 24.29C17.02 23.41 17.33 22.38 17.33 21.33L17.33 5.33C17.33 7.09 18.03 8.79 19.28 10.04C20.53 11.29 22.23 11.99 24 11.99"
+                                        stroke="#D5C9BE" stroke-opacity="1.000000" stroke-width="2.000000"
+                                        stroke-linejoin="round" stroke-linecap="round" />
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="footer-social__item">
+                        <a href="#" class="footer-social-link">
+                            <svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <desc>
+                                    Created with Pixso.
+                                </desc>
+                                <defs>
+                                    <clipPath id="clip65_1274">
+                                        <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                            transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0" />
+                                    </clipPath>
+                                </defs>
+                                <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                    transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0" />
+                                <g clip-path="url(#clip65_1274)">
+                                    <path
+                                        d="M23.99 5.33C25.47 5.33 26.66 6.52 26.66 7.99L26.66 23.99C26.66 25.47 25.47 26.66 23.99 26.66L7.99 26.66C6.52 26.66 5.33 25.47 5.33 23.99L5.33 7.99C5.33 6.52 6.52 5.33 7.99 5.33L23.99 5.33Z"
+                                        stroke="#D5C9BE" stroke-opacity="1.000000" stroke-width="2.000000"
+                                        stroke-linejoin="round" />
+                                    <path d="M10.66 14.66L10.66 21.33" stroke="#D5C9BE" stroke-opacity="1.000000"
+                                        stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round" />
+                                    <path d="M10.66 10.66L10.66 10.68" stroke="#D5C9BE" stroke-opacity="1.000000"
+                                        stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round" />
+                                    <path d="M16 21.33L16 14.66" stroke="#D5C9BE" stroke-opacity="1.000000"
+                                        stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round" />
+                                    <path
+                                        d="M21.33 21.33L21.33 17.33C21.33 16.62 21.05 15.94 20.55 15.44C20.05 14.94 19.37 14.66 18.66 14.66C17.95 14.66 17.28 14.94 16.78 15.44C16.28 15.94 16 16.62 16 17.33"
+                                        stroke="#D5C9BE" stroke-opacity="1.000000" stroke-width="2.000000"
+                                        stroke-linejoin="round" stroke-linecap="round" />
+                                </g>
+                            </svg>
+
+                        </a>
+                    </li>
+                    <li class="footer-social__item">
+                        <a href="#" class="footer-social-link">
+                            <svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <desc>
+                                    Created with Pixso.
+                                </desc>
+                                <defs>
+                                    <clipPath id="clip65_1275">
+                                        <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                            transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0" />
+                                    </clipPath>
+                                </defs>
+                                <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                    transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0" />
+                                <g clip-path="url(#clip65_1275)">
+                                    <path
+                                        d="M9.33 18.66L13.33 18.66L13.33 28L18.66 28L18.66 18.66L22.66 18.66L23.99 13.33L18.66 13.33L18.66 10.66C18.66 10.31 18.8 9.97 19.05 9.72C19.3 9.47 19.64 9.33 19.99 9.33L23.99 9.33L23.99 4L19.99 4C18.23 4 16.53 4.7 15.28 5.95C14.03 7.2 13.33 8.89 13.33 10.66L13.33 13.33L9.33 13.33L9.33 18.66Z"
+                                        stroke="#D5C9BE" stroke-opacity="1.000000" stroke-width="2.000000"
+                                        stroke-linejoin="round" />
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="footer-social__item">
+                        <a href="#" class="footer-social-link">
+                            <svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <desc>
+                                    Created with Pixso.
+                                </desc>
+                                <defs>
+                                    <clipPath id="clip65_1276">
+                                        <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                            transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0" />
+                                    </clipPath>
+                                </defs>
+                                <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                    transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0" />
+                                <g clip-path="url(#clip65_1276)">
+                                    <path
+                                        d="M20 13.33L14.66 18.66L22.66 26.66L28 5.33L4 14.66L9.33 17.33L12 25.33L16 19.99"
+                                        stroke="#D5C9BE" stroke-opacity="1.000000" stroke-width="2.000000"
+                                        stroke-linejoin="round" stroke-linecap="round" />
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="footer-social__item">
+                        <a href="#" class="footer-social-link">
+                            <svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <desc>
+                                    Created with Pixso.
+                                </desc>
+                                <defs>
+                                    <clipPath id="clip65_1277">
+                                        <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                            transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0" />
+                                    </clipPath>
+                                </defs>
+                                <rect rx="-0.500000" width="31.000000" height="31.000000"
+                                    transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0" />
+                                <g clip-path="url(#clip65_1277)">
+                                    <path
+                                        d="M22.66 6.66C25.61 6.66 28 9.05 28 12L28 20C28 22.94 25.61 25.33 22.66 25.33L9.33 25.33C6.38 25.33 4 22.94 4 20L4 12C4 9.05 6.38 6.66 9.33 6.66L22.66 6.66Z"
+                                        stroke="#D5C9BE" stroke-opacity="1.000000" stroke-width="2.000000"
+                                        stroke-linejoin="round" />
+                                    <path d="M19.99 16L13.33 20L13.33 12L19.99 16Z" stroke="#D5C9BE"
+                                        stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" />
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <a href="" class="footer-btn white-button">follow</a>
+            </div>
+            <div class="footer-text__wrap">
+                <p class="footer-text">© 2024, Copyright.</p>
+                <a href="#" class="footer-text footer-text__link orange-link" download>Privacy policy</a>
+                <a href="#" class="footer-text footer-text__link orange-link" download>Terms of Use</a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="./js/index.bundle.js"></script>
+</body>
+
+</html>
